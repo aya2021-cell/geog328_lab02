@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #550355;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .modal-body {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .modal-button {
+            background-color: #b91dd8;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .modal-button:hover {
+            background-color: #eb05df;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Abstract</a>
+        <a href="section1.html">Section 1</a>
+
+        <a class="active" href="section2.html">Section 2</a>
+
+        <a href="section3.html">Section 3</a>
+        <a href="see_also.html">See Also</a>
+        <a href="references.html">References</a>
+
+        <a href="javascript:void(0);" class="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="content">
+        <h1>What's the big deal?</h1>
+        
+        <p>Aside from the fun creative aspect of creating imagery without the need for the training of a "traditional" artist, the development of these capable tools bring many concerns into question: how could this tool be used to spread misinformation? What about the potential for data and privacy violations? Job displacement for artists? Copyright and ownership concerns?</p>
+        
+        <button class="modal-button" onclick="openModal()">Think About It</button>
+        
+        <h2>What direction do we think generative imagery is going?</h2>
+        
+        <p><a href="https://www.eimt.edu.eu/the-future-of-generative-ai-trends-to-watch-in-2025-and-beyond" target="_blank">This article</a> by the European Institute of Management and Technology answers this exact question! Their article reflects a large percentage of the public opinions</p>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">Think!</div>
+            <div class="modal-body">
+                <p>What concerns you most?</p>
+                <p>What makes you the most hopeful?</p>
+                <p>What ways do you think this technology will impact your life?</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('myModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+
+    <!-- Including the main.css file for styling -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Including the Font Awesome CSS library for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+            margin-top: 5px;
+        }
+
+        .active-accordion, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active-accordion:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .panel p {
+            padding: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <div class="topnav" id="myTopnav">
+        <!-- Links to different sections -->
+        <a href="index.html">Abstract</a>
+        <a href="section1.html">Section 1</a>
+        <a href="section2.html">Section 2</a>
+
+        <!-- Active link pointing to the section3.html page -->
+        <a class="active" href="section3.html">Section 3</a>
+
+        <a href="see_also.html">See Also</a>
+        <a href="references.html">References</a>
+
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links on smaller screens -->
+        <a href="javascript:void(0);" class="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <!-- Page content -->
+    <div class="content">
+        <!-- Section 3 content -->
+        <h1>If it's so scary, what's the good about it?</h1>
+        
+        <p>It democratizes creativity! Allowing anyone to produce professional visuals for art, business, or school without expensive training or software. Even in fields like medicine, these tools enables students to generate educational materials and even improve medical diagnostics by detecting diseases earlier and creating clearer scans (assuming they're reliable). These tools could make previously expensive or impossible tasks accessible, faster, and more affordable across industries.</p>
+
+        <button class="accordion">Democratizing Creativity</button>
+        <div class="panel">
+            <p>AI image generators allow anyone to produce professional visuals for art, business, or school without expensive training or software. This levels the playing field, giving creative power to people who previously couldn't afford traditional design tools or education.</p>
+        </div>
+
+        <button class="accordion">Medical Applications</button>
+        <div class="panel">
+            <p>In fields like medicine, these tools enable students to generate educational materials and even improve medical diagnostics by detecting diseases earlier and creating clearer scans (assuming they're reliable). AI can enhance medical imaging, making it easier for doctors to identify health issues quickly and accurately.</p>
+        </div>
+
+        <button class="accordion">Accessibility & Affordability</button>
+        <div class="panel">
+            <p>These tools make previously expensive or impossible tasks accessible, faster, and more affordable across industries. From small businesses creating marketing materials to educators developing visual aids, AI democratizes access to high-quality visual content.</p>
+        </div>
+    </div>
+
+    <!-- Including the main.js file for JavaScript functionality -->
+    <script src="js/main.js"></script>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active-accordion");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

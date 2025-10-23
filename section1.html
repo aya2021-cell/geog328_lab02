@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s ease;
+            border-radius: 3px;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-counter {
+            text-align: center;
+            padding: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Abstract</a>
+
+        <a class="active" href="section1.html">Section 1</a>
+
+        <a href="section2.html">Section 2</a>
+        <a href="section3.html">Section 3</a>
+        <a href="see_also.html">See Also</a>
+        <a href="references.html">References</a>
+
+        <a href="javascript:void(0);" class="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="content">
+        <h1>Image generators: What are they? How do they work?</h1>
+        
+        <p>Image generators use user's text descriptions or reference imagery to create a new image. By accessing millions of images and artworks online (using these machine learning models called neural networks), image generators are able to reference this source material, learning their patterns and consistent structures, they're able to combine multiple aspects of these sources to create an image reflecting the user's prompt.</p>
+        
+        <h2>Personal favorite early image generator fails:</h2>
+        <p><a href="https://thunderdungeon.com/2025/04/03/ai-fails-2/" target="_blank">https://thunderdungeon.com/2025/04/03/ai-fails-2/</a></p>
+
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-11-20250401-600x600.jpg" alt="AI Fail 1">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-23-20250401-600x600.jpg" alt="AI Fail 2">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-33-20250401.jpg" alt="AI Fail 3">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-34-20250401.jpg" alt="AI Fail 4">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-38-20250401.jpg" alt="AI Fail 5">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-4-20250401-600x600.jpg" alt="AI Fail 6">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-2-20250401-600x800.jpg" alt="AI Fail 7">
+            </div>
+
+            <div class="slide">
+                <img src="https://thunderdungeon.com/wp-content/uploads/2025/04/ai-fails-18-20250401.jpg" alt="AI Fail 8">
+            </div>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">8</span>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = index + 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            showSlide(currentSlide);
+        }
+    </script>
+
+</body>
+
+</html>
